@@ -1,0 +1,26 @@
+<!-- <div *ngFor="let post of posts" class="row">
+  <h5 class="col-2">{{post.userId}}</h5>
+  <h5 class="col-2">{{post.id}}</h5>
+  <h5 class="col-2">{{post.title}}</h5>
+  <h6 class="col-2">{{post.body}}</h6>
+</div> -->
+<table class="table table-striped">
+  <thead>
+    <tr>
+        <th>No.</th>
+        <th>Post Title</th>
+        <th>ID</th>
+        <th>Post Body</th>
+
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let post of posts">
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.userId}}</td>
+        <td>{{post.body}}</td>
+    </tr>
+
+</tbody>
+</table>

@@ -12,12 +12,10 @@ export class BoxShadowDirective {
  }
  @HostListener('mouseover') increase(){
   this.element.nativeElement.style.boxShadow=`3px 3px 5px 6px #ccc`
-  this.element.nativeElement.style.opacity = '.8';
 
  }
  @HostListener('mouseout') origin(){
   this.element.nativeElement.style.boxShadow= `0 0 0 0` ;
-  this.element.nativeElement.style.opacity = '1';
 
  }
 
