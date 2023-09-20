@@ -11,7 +11,7 @@
       Buy
     </button>
     <div class="row">
-      <button type="button" class="btn btn-secondary d-flex justify-content-center col-3" style="margin: auto;"
+      <button type="button" [disabled]="currentProductId==productIDs[0]" class="btn btn-secondary d-flex justify-content-center col-3" style="margin: auto;"
       (click)="prevPrd()">
       <i class="fa-solid fa-forward fa-rotate-180"></i>
     </button>
@@ -19,7 +19,7 @@
       (click)="goBack()">
       Back
     </button>
-    <button type="button" class="btn btn-secondary d-flex justify-content-center col-3" style="margin: auto;"
+    <button type="button" [disabled]="currentProductId==productIDs[productIDs.length-1]" class="btn btn-secondary d-flex justify-content-center col-3" style="margin: auto;"
       (click)="nextPrd()">
       <i class="fa-solid fa-forward"></i>
     </button>
