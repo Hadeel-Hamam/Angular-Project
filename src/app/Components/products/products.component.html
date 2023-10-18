@@ -8,15 +8,11 @@
   </select>
 </div> -->
 <section style="background-color: #eee">
-  <div class="text-center container py-5">
-    <div>
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/62/ART_Television_%28Sri_Lanka%29_%28logo%29.png"
-        style="width: 150px"
-        alt=""
-        *ngIf="flagImg"
-      />
-      <div *ngIf="!flagImg">
+  <div class="text-center container py-3" style="margin: auto;">
+    <div class="mb-3">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/ART_Television_%28Sri_Lanka%29_%28logo%29.png"
+        style="width: 150px" alt="" *ngIf="flagImg" />
+      <!-- <div *ngIf="!flagImg">
         Thanks for purchasing from our Store, {{ ClientNameParent }}!
       </div>
       <button type="button" class="btn btn-secondary" (click)="purchase()">
@@ -24,62 +20,34 @@
       </button>
       <h4 class="mt-4 mb-5">
         <strong>{{ StoreObject.name }}</strong>
-      </h4>
+      </h4> -->
     </div>
-
-    <div class="row" style="justify-content: center">
-      <div
-        class="col-lg-4 col-md-12 mb-4"
-        *ngFor="let prd of filteredProduct"
-        BoxShadow
-        style="width: 24%; padding: 0; margin-left: 2rem"
-      >
+    <div class="row" style="gap:4.5%;">
+      <div class="col-3 mb-4" *ngFor="let prd of filteredProduct" BoxShadow
+        style="width: 21.5%; padding: 0; ">
         <!-- <div *ngIf="selectedCatID==prd.categoryID || selectedCatID==0 "> -->
         <div>
-          <div
-            class="card"
-            [ngStyle]="{ opacity: prd.quantity == 0 ? 0.5 : '' }"
-          >
-            <div
-              class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"
-              data-mdb-ripple-color="light"
-            >
-              <img
-                style="height: 250px;object-fit: cover;"
-                src="{{ prd.img }}"
-                class="w-100 "
-                [routerLink]="['/products', prd.id]"
-                Opacity
-              />
+          <div class="card" [ngStyle]="{ opacity: prd.quantity == 0 ? 0.5 : '' }" style="border-radius: 30px;">
+            <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="padding: 7px 7px 0px 7px;">
+              <img style="height: 250px;object-fit: cover;" src="{{ prd.img }}" class="w-100 "
+                [routerLink]="['/product', prd.id]" Opacity />
             </div>
-            <div
-              [ngClass]="prd.quantity == 1 ? 'bg-warning' : ''"
-              style="padding-bottom: 1rem"
-            >
-              <div
-                class="row"
-                style="
+            <div [ngClass]="prd.quantity == 1 ? 'bg-warning' : ''" style="padding-bottom: 1rem; border-radius: 0px 0px 30px 30px; box-shadow: 0px -11px 12px 2px #707070;">
+              <div class="row" style="
                   margin-top: 5px;
                   justify-content: space-around;
                   align-items: baseline;
-                "
-              >
+                ">
                 <div class="mask col-3">
-                  <div
-                    class="d-flex justify-content-start align-items-end h-100"
-                  >
+                  <div class="d-flex justify-content-start align-items-end h-100">
                     <h5>
                       <span class="badge bg-primary ms-2 mt-3 mr-2">{{
                         prd.quantity
-                      }}</span>
+                        }}</span>
                     </h5>
                   </div>
                 </div>
-                <button
-                  type="button"
-                  class="btn btn-primary col-4"
-                  [routerLink]="['/products', prd.id]"
-                >
+                <button type="button" class="btn btn-primary col-4" [routerLink]="['/product', prd.id]">
                   Details
                 </button>
               </div>
@@ -101,22 +69,19 @@
                   (click)="prd!.quantity = productService.decrease(prd!.quantity)">
                   Buy
                 </button> -->
-                <h6 class="col-6">{{ prd.price | currency }}</h6>
+                <!-- <h6 class="col-6">{{ prd.price | currency }}</h6> -->
               </div>
               <hr />
-              <div
-                class="row mt-3"
-                style="justify-content: space-around; align-items: baseline"
-              >
-                <div class="mb-3 col-10">
-                  <!-- <input
+              <div class="row mt-3" style="justify-content: space-around; align-items: baseline">
+                <!-- <div class="mb-3 col-10">
+                  <input
                     type="number"
                     class="form-control form-control-sm"
                     aria-describedby="helpId"
                     #count
                     (input)="checkAvQuantity()"
-                  /> -->
-                </div>
+                  />
+                </div> -->
                 <!-- <button
                   (click)="Add({ productId: prd.id, count: +count.value })"
                   type="button"
@@ -124,20 +89,15 @@
                 >
                   Add
                 </button> -->
-                <button
-                  style="border: none"
+                <h6 class="col-6">{{ prd.price | currency }}</h6>
 
-                  [disabled]="prd.quantity == 0"
-                  (click)="
+                <button style="border: none" [disabled]="prd.quantity == 0" (click)="
                     AddOrderItem({
                       product: prd,
                       count: 1,
                       totalPrice: prd.price
                     })
-                  "
-                  type="button"
-                  class="btn col-2"
-                >
+                  " type="button" class="btn col-2">
                   <i class="fa-solid fa-cart-shopping shoppingIcon"></i>
                 </button>
               </div>

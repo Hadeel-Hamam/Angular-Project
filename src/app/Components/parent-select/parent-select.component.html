@@ -1,28 +1,16 @@
 <div class="row" style="justify-content: space-around">
-  <input
-    [(ngModel)]="ClientName"
-    class="form-control mb-3 mt-3 col-5"
-    placeholder="Enter your name"
-    style="width: 300px"
-  />
-  <select
-    class="form-select form-select-lg col-5 mb-3 mt-3"
-    name="cat"
-    id="prdcat"
-    [(ngModel)]="selectedCatID"
-    style="width: 40%; height: fit-content"
-  >
+  <input [(ngModel)]="ClientName" class="form-control mb-3 mt-3 col-5" placeholder="Enter your name"
+    style="width: 300px" />
+  <select class="form-select form-select-lg col-5 mb-3 mt-3" name="cat" id="prdcat" [(ngModel)]="selectedCatID"
+    style="width: 40%; height: fit-content">
     <option value="0">All Categories</option>
     <option *ngFor="let category of catList" [value]="category.id">
       {{ category.name }}
     </option>
   </select>
 </div>
-<app-products
-  [selectedCatIDParent]="selectedCatID"
-  [ClientNameParent]="ClientName"
-  (onOrderItemAdd)="AddOrderItemToCardList($event)"
-></app-products>
+<app-products [selectedCatIDParent]="selectedCatID" [ClientNameParent]="ClientName"
+  (onOrderItemAdd)="AddOrderItemToCardList($event)"></app-products>
 <div class="table-responsive">
   <table class="table table-striped">
     <thead>
@@ -61,25 +49,13 @@
             </button> -->
             <form>
               <div class="row">
-                <button
-                  class="value-button bg-danger text-white"
-                  id="decrease"
-                  (click)="decrease(orderItem)"
-                  [disabled]="orderItem.count <= 1"
-                >
+                <button class="btn value-button bg-danger text-white" id="decrease" (click)="decrease(orderItem)"
+                  [disabled]="orderItem.count <= 1">
                   -
                 </button>
-                <input
-                  type="number"
-                  id="number"
-                  value="{{ orderItem.count }}"
-                />
-                <button
-                  class="value-button bg-success text-white"
-                  id="increase"
-                  (click)="increase(orderItem)"
-                  [disabled]="orderItem.product.quantity <= 0"
-                >
+                <input type="number" id="number" value="{{ orderItem.count }}" />
+                <button class="btn value-button bg-success text-white" id="increase" (click)="increase(orderItem)"
+                  [disabled]="orderItem.product.quantity <= 0">
                   +
                 </button>
               </div>
@@ -87,7 +63,8 @@
           </td>
           <td scope="row">{{ orderItem.product.price }}</td>
           <td scope="row">{{ orderItem.product.price * orderItem.count }}</td>
-          <td><button class="btn btn-danger" (click)="removeFromCard(orderItem)">Remove</button></td>
+          <td><i class="fa fa-trash" (click)="removeFromCard(orderItem)" style="cursor: pointer;color: #dc3545;"></i>
+          </td>
         </tr>
       </ng-container>
     </tbody>

@@ -1,30 +1,51 @@
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: gray;">
-    <div class="container-fluid">
-
-        <a class="navbar-brand" href="#">
-            <img src="../../../assets/gift.png" alt="logo" style="height: 40px;width: 40px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/Home" routerLinkActive="active select">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/Credit" routerLinkActive="active select">Crdeit</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/Posts" routerLinkActive="active select">Posts</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                <button class="btn btn-success" type="submit">Search</button>
-            </form>
-        </div>
+  <div class="container-fluid">
+    <div [hidden]="!isUserLogged" id="mySidenav" class="sidenav nav-item">
+      <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+      <a class="nav-link" routerLinkActive="active select" routerLink="/Home">Home</a>
+      <a class="nav-link" routerLinkActive="active select" routerLink="/Products">Products</a>
+      <a class="nav-link" routerLinkActive="active select" routerLink="/Posts">Posts</a>
+      <a class="nav-link" routerLinkActive="active select" routerLink="/Phhj">Clients</a>
+      <a class="nav-link" routerLinkActive="active select" [routerLink]="['/Credit']">Credit</a>
     </div>
+
+    <span [hidden]="!isUserLogged" style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; &nbsp;</span>
+
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/gift.png" alt="logo" style="height: 40px;width: 40px;">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Home" routerLinkActive="active select">Home</a>
+        </li>
+        <li [hidden]="!isUserLogged" class="nav-item">
+          <a class="nav-link" routerLinkActive="active select" routerLink="/Products">Products</a>
+        </li>
+        <li [hidden]="!isUserLogged" class="nav-item">
+          <a class="nav-link" routerLink="/Credit" routerLinkActive="active select">Crdeit</a>
+        </li>
+        <li [hidden]="!isUserLogged" class="nav-item">
+          <a class="nav-link" routerLink="/Posts" routerLinkActive="active select">Posts</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+        <button class="btn btn-success" type="submit">Search</button>
+
+      </form>
+      <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 1%;">
+        <li class="nav-item">
+          <a [hidden]="isUserLogged" class="nav-link" routerLink="/Login" routerLinkActive="active select">Login</a>
+          <a [hidden]="!isUserLogged" class="nav-link" routerLink="/Login" routerLinkActive="active select"
+            (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

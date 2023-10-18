@@ -7,7 +7,7 @@ export class BoxShadowDirective {
   shadow1:string="3px 7px";
   shadow2:string="5px 10px";
   constructor(public element:ElementRef) {
-    this.element.nativeElement.style.borderRadius = '20px';
+    this.element.nativeElement.style.borderRadius = '30px';
     // this.element.nativeElement.style.border = '3px solid red';
  }
  @HostListener('mouseover') increase(){

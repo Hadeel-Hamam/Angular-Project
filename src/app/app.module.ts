@@ -18,6 +18,8 @@ import { ParentSelectComponent } from './Components/parent-select/parent-select.
 import { PostsComponent } from './Components/posts/posts.component';
 import{ HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './Components/login/login.component';
+import { IntroPageComponent } from './Components/intro-page/intro-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProductDetailsComponent,
     OpacityDirective,
     ParentSelectComponent,
-    PostsComponent
+    PostsComponent,
+    LoginComponent,
+    IntroPageComponent
   ],
   imports: [
     BrowserModule,

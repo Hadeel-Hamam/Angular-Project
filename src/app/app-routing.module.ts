@@ -7,6 +7,9 @@ import { CreditFormComponent } from './Components/credit-form/credit-form.compon
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ParentSelectComponent } from './Components/parent-select/parent-select.component';
 import { PostsComponent } from './Components/posts/posts.component';
+import { LoginComponent } from './Components/login/login.component';
+import { IntroPageComponent } from './Components/intro-page/intro-page.component';
+import { authGuard } from './Gaurds/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,13 +17,16 @@ const routes: Routes = [
     component: ComponentGroupComponent,
     children: [
       { path: '', redirectTo: '/Home', pathMatch: 'full' },
-      {path:'Home',component:ParentSelectComponent,title:'Products Page'},
+      {path:'Home',component:IntroPageComponent,title:'Products Page'},
+      {path:'Products',component:ParentSelectComponent,title:'Products Page',canActivate:[authGuard]},
       // { path: 'Home', component: ProductsComponent, title: 'Products Page' },
       { path: 'Credit', component: CreditFormComponent, title: 'Enter Credit'},
-      { path: 'products/:id', component: ProductDetailsComponent, title: 'Product Details'},
+      { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details'},
       {path:'Posts',component:PostsComponent,title:'Posts Page'}
     ],
   },
+  {path:'Login',component:LoginComponent,title:'Login'},
+  // {path:'Logout',component:LoginComponent,title:'Login'},
   { path: '**', component: NotFoundPageComponent, title: 'Not Found Page' },
 ];
 
