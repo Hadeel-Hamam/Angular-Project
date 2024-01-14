@@ -20,6 +20,8 @@ import{ HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './Components/login/login.component';
 import { IntroPageComponent } from './Components/intro-page/intro-page.component';
+import { CartListComponent } from './Components/cart-list/cart-list.component';
+import { NgToastModule } from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { IntroPageComponent } from './Components/intro-page/intro-page.component
     ParentSelectComponent,
     PostsComponent,
     LoginComponent,
-    IntroPageComponent
+    IntroPageComponent,
+    CartListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { IntroPageComponent } from './Components/intro-page/intro-page.component
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+    NgToastModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

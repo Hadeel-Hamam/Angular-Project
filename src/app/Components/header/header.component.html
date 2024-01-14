@@ -4,7 +4,7 @@
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
       <a class="nav-link" routerLinkActive="active select" routerLink="/Home">Home</a>
       <a class="nav-link" routerLinkActive="active select" routerLink="/Products">Products</a>
-      <a class="nav-link" routerLinkActive="active select" routerLink="/Posts">Posts</a>
+      <!-- <a class="nav-link" routerLinkActive="active select" routerLink="/Posts">Posts</a> -->
       <a class="nav-link" routerLinkActive="active select" routerLink="/Phhj">Clients</a>
       <a class="nav-link" routerLinkActive="active select" [routerLink]="['/Credit']">Credit</a>
     </div>
@@ -30,7 +30,7 @@
           <a class="nav-link" routerLink="/Credit" routerLinkActive="active select">Crdeit</a>
         </li>
         <li [hidden]="!isUserLogged" class="nav-item">
-          <a class="nav-link" routerLink="/Posts" routerLinkActive="active select">Posts</a>
+          <!-- <a class="nav-link" routerLink="/Posts" routerLinkActive="active select">Posts</a> -->
         </li>
       </ul>
       <form class="d-flex">
@@ -40,9 +40,22 @@
 
       </form>
       <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 1%;">
+        <li [hidden]="!isUserLogged" class="nav-item">
+          <a class="nav-link" routerLink="/MyCartList">
+            <i class="fa-solid fa-cart-shopping shoppingIcon"></i>
+            <span
+            *ngIf="cartService.getCartCount() != 0"
+            class="position-absolute start-90 p-1 translate-middle badge rounded-pill badge-notification bg-danger"
+          >
+            {{ cartService.getCartCount() }}
+          </span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 1%;">
         <li class="nav-item">
           <a [hidden]="isUserLogged" class="nav-link" routerLink="/Login" routerLinkActive="active select">Login</a>
-          <a [hidden]="!isUserLogged" class="nav-link" routerLink="/Login" routerLinkActive="active select"
+          <a [hidden]="!isUserLogged" class="nav-link" routerLink="/Home" routerLinkActive="active select"
             (click)="logout()">Logout</a>
         </li>
       </ul>

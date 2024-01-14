@@ -1,3 +1,4 @@
+import { CartService } from './../../Services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { UserAuthService } from 'src/app/Services/user-auth.service';
 
@@ -8,8 +9,9 @@ import { UserAuthService } from 'src/app/Services/user-auth.service';
 })
 export class HeaderComponent implements OnInit {
   isUserLogged: boolean;
+  cartCount:number=0;
 
-  constructor(private authService: UserAuthService) {
+  constructor(private authService: UserAuthService,public cartService:CartService) {
     this.isUserLogged=this.authService.isLogged;
 
   }
@@ -17,6 +19,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     // this.isUserLogged = this.authService.isLogged;
     this.authService.loggedStatus().subscribe(status=>this.isUserLogged=status)
+    this.cartCount=this.cartService.getCartCount();
   }
   openNav() {
     document.getElementById('mySidenav')!.style.width = '250px';

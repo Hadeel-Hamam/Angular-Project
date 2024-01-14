@@ -6,35 +6,6 @@
 :root {
   --primaryColor: #7d467f;
 }
-
-
-#loginsec {
-  padding: 3% 7% 0;
-  display: flex;
-  background-color: #c7c7c7;
-  margin: 0px;
-}
-
-.loginpic {
-  width: 480px;
-  border-radius: 20px 70px 0 0;
-  height: 275px;
-  object-fit: cover;
-}
-
-
-.loginsection {
-  background-color: var(--color-gainsboro);
-  height: 680px;
-}
-
-.login-form {
-  position: absolute;
-  margin-left: 725px;
-  width: 480px;
-  text-align: left;
-}
-
 .input {
   border: 0;
   background-color: #d9d9d9;
@@ -42,7 +13,7 @@
   width: 300px;
   height: 49px;
   padding: 10px;
-  margin: 20px 0 20px 45px;
+  margin: 20px 0 20px 0px;
 }
 
 input {
@@ -56,7 +27,6 @@ input {
 .login-form a {
   text-decoration: none;
   color: white;
-  margin: 0 0 0 45px;
 }
 
 .login-form a:hover {
@@ -66,14 +36,21 @@ input {
 
 .inputs {
   top: 275px;
-  border-radius: 0 0 20px 70px;
-  background-color: #4c4b4b;
-  height: 270px;
+  border-radius: 20px;
+  /* background-color: #4c4b4b; */
+  height: 550px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(206deg, #494949 0%, rgba(0, 255, 255, 0.39) 230%);
+
+
+
 }
 
 .loginpic,
 .inputs {
-  position: absolute;
   left: 0;
   width: 420px;
 }
@@ -98,7 +75,7 @@ input {
   color: white;
 }
 .login-button{
-  background-color: #9e5788;
+  background-color: #4c4b4b;
 
 }
 .logout-button{

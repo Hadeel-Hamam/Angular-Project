@@ -7,7 +7,7 @@
     <option *ngFor="let category of catList" [value]="category.id">{{ category.name }}</option>
   </select>
 </div> -->
-<section style="background-color: #eee">
+<section style="background-color: #bdbdbd">
   <div class="text-center container py-3" style="margin: auto;">
     <div class="mb-3">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/ART_Television_%28Sri_Lanka%29_%28logo%29.png"
@@ -47,9 +47,9 @@
                     </h5>
                   </div>
                 </div>
-                <button type="button" class="btn btn-primary col-4" [routerLink]="['/product', prd.id]">
+                <!-- <button type="button" class="btn btn-primary col-4" [routerLink]="['/product', prd.id]">
                   Details
-                </button>
+                </button> -->
               </div>
               <a href="" class="text-reset">
                 <h5 class="card-title mb-3"></h5>
@@ -91,8 +91,9 @@
                 </button> -->
                 <h6 class="col-6">{{ prd.price | currency }}</h6>
 
+
                 <button style="border: none" [disabled]="prd.quantity == 0" (click)="
-                    AddOrderItem({
+                    addtoCartList({
                       product: prd,
                       count: 1,
                       totalPrice: prd.price
@@ -100,6 +101,7 @@
                   " type="button" class="btn col-2">
                   <i class="fa-solid fa-cart-shopping shoppingIcon"></i>
                 </button>
+                <button style="border: none" type="button" class="btn col-2" [routerLink]="['/product', prd.id]"><i class="fa-solid fa-circle-info"></i></button>
               </div>
             </div>
           </div>

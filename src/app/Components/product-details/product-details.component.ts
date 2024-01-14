@@ -42,7 +42,7 @@ export class ProductDetailsComponent implements OnInit {
     let prevPrdID;
     if (currentIndex > 0) {
       prevPrdID = this.productIDs[currentIndex - 1];
-      this.router.navigate(['/products', prevPrdID]);
+      this.router.navigate(['/product', prevPrdID]);
     }
   }
   nextPrd() {
@@ -53,7 +53,7 @@ export class ProductDetailsComponent implements OnInit {
     let nextPrdID;
     if (currentIndex < this.productIDs.length) {
       nextPrdID = this.productIDs[currentIndex + 1];
-      this.router.navigate(['/products', nextPrdID]);
+      this.router.navigate(['/product', nextPrdID]);
     }
   }
 }

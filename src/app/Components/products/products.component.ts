@@ -172,4 +172,9 @@ export class ProductsComponent implements OnChanges {
     //   this.flagQuantity = true;
     // }
   }
+  addtoCartList(orderItem: IOrderItem){
+    // this.onOrderItemAdd.emit(orderItem);
+
+    this.productService.AddOrderItemToCartList(orderItem);
+  }
 }

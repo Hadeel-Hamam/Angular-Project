@@ -12,7 +12,7 @@ export class ParentSelectComponent {
   selectedCatID: number = 0;
   ClientName: string;
   catList: ICategory[];
-  cardList: IOrderItem[] = [];
+  cartList: IOrderItem[] = [];
   constructor(public productsService: ProductsService) {
     this.ClientName = '';
     this.catList = [
@@ -21,35 +21,35 @@ export class ParentSelectComponent {
       { id: 3, name: 'Oil Paintings' },
     ];
   }
-  AddOrderItemToCardList(orderItem: IOrderItem) {
+  AddOrderItemToCartList(orderItem: IOrderItem) {
     // let isProductExist = this.productsService.isProductExist(
     //   orderItem.product.id
     // );
     // if (!isProductExist) {
-    //   this.cardList.push(orderItem);
+    //   this.cartList.push(orderItem);
     // } else {
-    //   let orderItemIndex = this.cardList.findIndex(
+    //   let orderItemIndex = this.cartList.findIndex(
     //     (oItem) => oItem.product.id == orderItem.product.id
     //   );
-    //   this.cardList[orderItemIndex] = orderItem;
+    //   this.cartList[orderItemIndex] = orderItem;
     // }
 
-    let isOrderItemExist = this.cardList.findIndex(
+    let isOrderItemExist = this.cartList.findIndex(
       (oItem) => oItem.product.id == orderItem.product.id
     );
     if (isOrderItemExist == -1) {
-      this.cardList.push(orderItem);
+      this.cartList.push(orderItem);
       orderItem.product.quantity -= orderItem.count;
       let product = this.productsService.getProductByID(orderItem.product.id);
       // product!.quantity -= orderItem.count;
     } else {
-      let oldOrderItem = this.cardList[isOrderItemExist];
+      let oldOrderItem = this.cartList[isOrderItemExist];
 
       let product = this.productsService.getProductByID(orderItem.product.id);
 
       // product!.quantity += oldOrderItem.count;
 
-      // this.cardList[isOrderItemExist] = orderItem;
+      // this.cartList[isOrderItemExist] = orderItem;
 
       // product!.quantity -= orderItem.count;
 
@@ -57,9 +57,9 @@ export class ParentSelectComponent {
       product!.quantity -= orderItem.count;
     }
   }
-  removeFromCard(orderItem: IOrderItem){
-    let index=this.cardList.indexOf(orderItem);
-    this.cardList.splice(index,1);
+  removeFromCart(orderItem: IOrderItem){
+    let index=this.cartList.indexOf(orderItem);
+    this.cartList.splice(index,1);
     orderItem.product!.quantity += orderItem.count
   }
   increase(orderItem: IOrderItem) {
