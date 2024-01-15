@@ -7,7 +7,7 @@
     <option *ngFor="let category of catList" [value]="category.id">{{ category.name }}</option>
   </select>
 </div> -->
-<section style="background-color: #bdbdbd">
+<section style="background-color: #dcdcdc">
   <div class="text-center container py-3" style="margin: auto;">
     <div class="mb-3">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/ART_Television_%28Sri_Lanka%29_%28logo%29.png"
@@ -32,7 +32,7 @@
               <img style="height: 250px;object-fit: cover;" src="{{ prd.img }}" class="w-100 "
                 [routerLink]="['/product', prd.id]" Opacity />
             </div>
-            <div [ngClass]="prd.quantity == 1 ? 'bg-warning' : ''" style="padding-bottom: 1rem; border-radius: 0px 0px 30px 30px; box-shadow: 0px -11px 12px 2px #707070;">
+            <div [ngClass]="prd.quantity == 1 ? 'bg-lastItem' : ''" style="padding-bottom: 1rem; border-radius: 0px 0px 30px 30px; box-shadow: 0px -11px 12px 2px #707070;">
               <div class="row" style="
                   margin-top: 5px;
                   justify-content: space-around;
@@ -61,7 +61,7 @@
               <div class="row mb-2 mt-3">
                 <div [ngSwitch]="prd.quantity" class="col-6">
                   <div *ngSwitchCase="0">Out of Stock</div>
-                  <div *ngSwitchCase="1">Last One Item</div>
+                  <div *ngSwitchCase="1" style="color: rgb(124, 0, 0);">Last One Item</div>
                   <div *ngSwitchCase="2">Last two Item</div>
                   <div *ngSwitchDefault>In Stock</div>
                 </div>

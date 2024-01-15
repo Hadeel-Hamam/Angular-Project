@@ -18,7 +18,8 @@
   margin: 0;
   padding: 0;
   font-family: emoji;
+  /* font-family: monospace; */
 }
 body{
-  background-color: #bdbdbd;
+  background-color: #dcdcdc;
 }

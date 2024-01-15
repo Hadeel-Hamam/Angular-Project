@@ -17,7 +17,12 @@
   -ms-user-select: none;
   user-select: none;
 }
-
+.plusBtn{
+  background-color:  #0b4a4a !important;;
+}
+.minBtn{
+  background-color: #585858 !important;
+}
 .value-button:hover {
   cursor: pointer;
 }

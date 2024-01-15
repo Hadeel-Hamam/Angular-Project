@@ -57,7 +57,7 @@ export class ProductsService {
       {
         id: 6,
         name: 'Drawing 6',
-        quantity: 0,
+        quantity: 1,
         price: 1900,
         img: 'https://i.ibb.co/9ThYC8L/image.jpg',
         categoryID: 2,
@@ -110,7 +110,7 @@ export class ProductsService {
         img: 'https://i.ibb.co/JdbR3VY/IMG.jpg',
         categoryID: 1,
       },
-      
+
     ];
     this.onOrderItemAdd=new EventEmitter<IOrderItem>();
 

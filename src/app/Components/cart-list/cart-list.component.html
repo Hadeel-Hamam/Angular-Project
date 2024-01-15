@@ -20,12 +20,12 @@
           <td scope="row">
             <form>
               <div class="row">
-                <button class="btn value-button bg-danger text-white" id="decrease" (click)="decrease(orderItem)"
+                <button class="btn value-button minBtn  text-white" id="decrease" (click)="decrease(orderItem)"
                   [disabled]="orderItem.count <= 1">
                   -
                 </button>
                 <input type="number" id="number" value="{{ orderItem.count }}" />
-                <button class="btn value-button bg-success text-white" id="increase" (click)="increase(orderItem)"
+                <button class="btn value-button plusBtn text-white" id="increase" (click)="increase(orderItem)"
                   [disabled]="orderItem.product.quantity <= 0">
                   +
                 </button>
