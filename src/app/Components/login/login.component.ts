@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserAuthService } from 'src/app/Services/user-auth.service';
 
 @Component({
@@ -6,28 +7,18 @@ import { UserAuthService } from 'src/app/Services/user-auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  userName:string;
-  password:string;
-  isUserLogged:boolean=false;
+export class LoginComponent {
+  username: string = '';
+  password: string = '';
 
-  constructor(private authService:UserAuthService){
-    this.userName='';
-    this.password='';
+  constructor(private authService: UserAuthService, private router: Router) {}
+
+  onLogin(): void {
+    const isAuthenticated = this.authService.login(this.username, this.password);
+
+    if (isAuthenticated) {
+      this.router.navigate(['/Products']);
+    }
   }
-  ngOnInit(): void {
-    this.isUserLogged=this.authService.isLogged;
-  }
-
-  login(){
-    this.authService.login(this.userName,this.password);
-    this.isUserLogged=this.authService.isLogged;
-
-  }
-  logout(){
-    this.authService.logout();
-    this.isUserLogged=this.authService.isLogged;
-
-  }
-
 }
+

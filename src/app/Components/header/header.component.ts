@@ -10,6 +10,7 @@ import { UserAuthService } from 'src/app/Services/user-auth.service';
 export class HeaderComponent implements OnInit {
   isUserLogged: boolean;
   cartCount:number=0;
+  username: string | null = '';
 
   constructor(private authService: UserAuthService,public cartService:CartService) {
     this.isUserLogged=this.authService.isLogged;
@@ -17,9 +18,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.isUserLogged = this.authService.isLogged;
     this.authService.loggedStatus().subscribe(status=>this.isUserLogged=status)
     this.cartCount=this.cartService.getCartCount();
+    this.authService.getUsernameObservable().subscribe((username) => {
+      this.username = username;
+    });
   }
   openNav() {
     document.getElementById('mySidenav')!.style.width = '250px';
@@ -32,7 +35,6 @@ export class HeaderComponent implements OnInit {
   }
   logout(){
     this.authService.logout();
-    // this.isUserLogged = this.authService.isLogged;
     this.authService.loggedStatus().subscribe(status=>this.isUserLogged=status)
 
 

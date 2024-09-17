@@ -21,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './Components/login/login.component';
 import { IntroPageComponent } from './Components/intro-page/intro-page.component';
 import { CartListComponent } from './Components/cart-list/cart-list.component';
-import { NgToastModule } from 'ng-angular-popup'
+import { NgToastModule } from 'ng-angular-popup';
+import { RegisterComponent } from './Components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NgToastModule } from 'ng-angular-popup'
     PostsComponent,
     LoginComponent,
     IntroPageComponent,
-    CartListComponent
+    CartListComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

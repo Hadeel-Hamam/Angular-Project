@@ -1,16 +1,16 @@
-.login
+.register
 {
   background: linear-gradient(206deg, #6565654e 0%, rgba(0, 255, 255, 0.355) 230%);
   box-shadow: 5px 5px 11px 4px #ccc;
-  width: 23rem;
+  width: 23rem ;
   height: 33rem;
   border-radius: 2rem;
 }
-.login a {
+.register a {
   text-decoration: none;
   color: white;
 }
-.login a:hover {
+.register a:hover {
   text-decoration: none;
   color: #000;
 }
@@ -24,7 +24,7 @@ input {
   padding: 1rem;
   margin: 20px 0 20px 0px;
 }
-.login-button {
+.register-button {
   text-decoration: none;
   border: 0;
   border-radius: 1rem;

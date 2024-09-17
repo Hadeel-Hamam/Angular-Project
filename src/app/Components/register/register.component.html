@@ -1,0 +1,14 @@
+<div class="container d-flex justify-content-center flex-column align-items-center register mt-5">
+
+
+  <h2>SignUp</h2>
+  <form (ngSubmit)="onRegister()">
+    <div class="d-flex flex-column align-items-center">
+      <input type="username" [(ngModel)]="username" name="Username" placeholder="Username" required>
+      <input type="email" [(ngModel)]="email" name="email" placeholder="email" required>
+      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+      <button type="submit" class="register-button">signup</button>
+    </div>
+  </form>
+  <a routerLink="/Login">Already have an account? Login</a>
+</div>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: gray;">
+<nav class="navbar navbar-expand-lg navbar-dark w-100" style="background-color: gray;">
   <div class="container-fluid">
     <div [hidden]="!isUserLogged" id="mySidenav" class="sidenav nav-item">
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
@@ -39,25 +39,43 @@
         <button class="btn btn-success" type="submit">Search</button>
 
       </form>
-      <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 1%;">
+      <!-- <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 1%;">
         <li [hidden]="!isUserLogged" class="nav-item">
           <a class="nav-link" routerLink="/MyCartList">
             <i class="fa-solid fa-cart-shopping shoppingIcon"></i>
-            <span
-            *ngIf="cartService.getCartCount() != 0"
-            class="position-absolute start-90 p-1 translate-middle badge rounded-pill badge-notification bg-danger"
-          >
-            {{ cartService.getCartCount() }}
-          </span>
+            <span *ngIf="cartService.getCartCount() != 0"
+              class="position-absolute start-90 p-1 translate-middle badge rounded-pill badge-notification bg-danger">
+              {{ cartService.getCartCount() }}
+            </span>
           </a>
         </li>
-      </ul>
+      </ul> -->
       <ul class="navbar-nav mb-2 mb-lg-0" style="margin-left: 1%;">
-        <li class="nav-item">
-          <a [hidden]="isUserLogged" class="nav-link" routerLink="/Login" routerLinkActive="active select">Login</a>
-          <a [hidden]="!isUserLogged" class="nav-link" routerLink="/Home" routerLinkActive="active select"
-            (click)="logout()">Logout</a>
+
+        <li [hidden]="!isUserLogged" class="nav-item">
+          <a class="nav-link" routerLink="/MyCartList">
+            <i class="fa-solid fa-cart-shopping shoppingIcon"></i>
+            <span *ngIf="cartService.getCartCount() != 0"
+              class="position-absolute start-90 p-1 translate-middle badge rounded-pill badge-notification bg-danger">
+              {{ cartService.getCartCount() }}
+            </span>
+          </a>
         </li>
+
+        <li [hidden]="isUserLogged" class="nav-item">
+          <a class="nav-link" routerLink="/Login" routerLinkActive="active select">Login</a>
+        </li>
+        <li [hidden]="isUserLogged" class="nav-item">
+          <a class="nav-link" routerLink="/SignUp" routerLinkActive="active select">SignUp</a>
+        </li>
+        <li [hidden]="!isUserLogged" class="nav-item">
+          <p class="nav-link text-white fw-bold">Hello, {{ username }}!</p>
+        </li>
+        <li [hidden]="!isUserLogged" class="nav-item">
+          <a class="nav-link" routerLink="/Home"  (click)="logout()">Logout</a>
+        </li>
+
+
       </ul>
     </div>
   </div>

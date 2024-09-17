@@ -11,6 +11,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { IntroPageComponent } from './Components/intro-page/intro-page.component';
 import { authGuard } from './Guards/auth.guard';
 import { CartListComponent } from './Components/cart-list/cart-list.component';
+import { RegisterComponent } from './Components/register/register.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,6 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/Home', pathMatch: 'full' },
       {path:'Products',component:ParentSelectComponent,title:'Products Page',canActivate:[authGuard]},
-      // { path: 'Home', component: ProductsComponent, title: 'Products Page' },
       {path:'MyCartList',component:CartListComponent,title:'MyCartList',canActivate:[authGuard]},
       { path: 'Credit', component: CreditFormComponent, title: 'Enter Credit'},
       { path: 'product/:id', component: ProductDetailsComponent, title: 'Product Details',canActivate:[authGuard]},
@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {path:'Home',component:IntroPageComponent,title:'Products Page'},
   {path:'Login',component:LoginComponent,title:'Login'},
-  // {path:'Logout',component:LoginComponent,title:'Login'},
+  {path:'SignUp',component:RegisterComponent,title:'SignUp'},
   { path: '**', component: NotFoundPageComponent, title: 'Not Found Page' },
 ];
 
