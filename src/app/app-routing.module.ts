@@ -26,7 +26,7 @@ const routes: Routes = [
       {path:'Posts',component:PostsComponent,title:'Posts Page'}
     ],
   },
-  {path:'Home',component:IntroPageComponent,title:'Products Page'},
+  {path:'Home',component:IntroPageComponent,title:'Home'},
   {path:'Login',component:LoginComponent,title:'Login'},
   {path:'SignUp',component:RegisterComponent,title:'SignUp'},
   { path: '**', component: NotFoundPageComponent, title: 'Not Found Page' },
