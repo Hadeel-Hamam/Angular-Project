@@ -1,5 +1,6 @@
-<div class="table-responsive container mt-5 d-flex justify-content-center text-center w-70" style="width: 60%;" *ngIf="cartService.getCartCount() != 0">
-  <table class="table table-dark table-hover " style="table-layout: fixed">
+<div class="main table-responsive container mt-5 d-flex justify-content-center text-center" style=" overflow-x: auto;"
+  *ngIf="cartService.getCartCount() != 0">
+  <table class="table table-dark table-hover " >
     <thead>
       <tr>
         <th scope="col">NO .</th>
@@ -15,17 +16,17 @@
       <ng-container *ngFor="let orderItem of cartList">
         <tr class="align-middle">
           <td scope="row">{{ orderItem.product.id }}</td>
-          <td scope="row"><img src="{{ orderItem.product.img }}" alt="" style="width: auto;height: 80px;"></td>
+          <td scope="row"><img src="{{ orderItem.product.img }}" alt="" style="width: auto;height: 80px; margin-left: 60px;"></td>
           <td scope="row">{{ orderItem.product.name }}</td>
           <td scope="row">
             <form>
-              <div class="row">
-                <button class="btn value-button minBtn  text-white" id="decrease" (click)="decrease(orderItem)"
+              <div class="row d-flex">
+                <button class="btn value-button minBtn col-4 text-white" id="decrease" (click)="decrease(orderItem)"
                   [disabled]="orderItem.count <= 1">
                   -
                 </button>
-                <input type="number" id="number" value="{{ orderItem.count }}" />
-                <button class="btn value-button plusBtn text-white" id="increase" (click)="increase(orderItem)"
+                <input type="number" id="number" class="col-4" value="{{ orderItem.count }}" />
+                <button class="btn value-button plusBtn col-4 text-white" id="increase" (click)="increase(orderItem)"
                   [disabled]="orderItem.product.quantity <= 0">
                   +
                 </button>
@@ -43,10 +44,12 @@
 </div>
 <div class="container" *ngIf="cartService.getCartCount() == 0">
   <div class="row mt-5 d-flex align-items-center">
-    <div class="col-6 text-center">
+    <div class="col-lg-6 col-12 text-center">
       <h2>There are no items in the cart yet</h2>
     </div>
-    <div class="col-6 left-sec"><img src="assets/emptyCart.gif" alt=""></div>
+    <div class="col-lg-6 col-12 left-sec text-center">
+      <img src="assets/emptyCart.gif" class="w-100" alt="">
+    </div>
 
   </div>
 </div>

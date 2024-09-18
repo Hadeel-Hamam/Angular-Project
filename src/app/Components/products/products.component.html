@@ -1,112 +1,93 @@
-<!-- <div class="row" style="justify-content: space-around;">
-  <input [(ngModel)]="ClientName" class="form-control mb-3 mt-3 col-5" placeholder="Enter your name"
-    style="width: 300px" />
-  <select class="form-select form-select-lg col-5 mb-3 mt-3" name="cat" id="prdcat" [(ngModel)]="selectedCatID"
-    style="width: 40%; height: fit-content;">
-    <option value="0">All Categories</option>
-    <option *ngFor="let category of catList" [value]="category.id">{{ category.name }}</option>
-  </select>
-</div> -->
-<section style="background-color: #dcdcdc">
-  <div class="text-center container py-3" style="margin: auto;">
-    <div class="mb-3">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/ART_Television_%28Sri_Lanka%29_%28logo%29.png"
-        style="width: 150px" alt="" *ngIf="flagImg" />
-      <!-- <div *ngIf="!flagImg">
-        Thanks for purchasing from our Store, {{ ClientNameParent }}!
-      </div>
-      <button type="button" class="btn btn-secondary" (click)="purchase()">
-        Show/Hide
-      </button>
-      <h4 class="mt-4 mb-5">
-        <strong>{{ StoreObject.name }}</strong>
-      </h4> -->
-    </div>
-    <div class="row" style="gap:4.5%;">
-      <div class="col-3 mb-4" *ngFor="let prd of filteredProduct" BoxShadow
-        style="width: 21.5%; padding: 0; ">
-        <!-- <div *ngIf="selectedCatID==prd.categoryID || selectedCatID==0 "> -->
-        <div>
-          <div class="card" [ngStyle]="{ opacity: prd.quantity == 0 ? 0.5 : '' }" style="border-radius: 30px;">
-            <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="padding: 7px 7px 0px 7px;">
-              <img style="height: 250px;object-fit: cover;" src="{{ prd.img }}" class="w-100 "
-                [routerLink]="['/product', prd.id]" Opacity />
-            </div>
-            <div [ngClass]="prd.quantity == 1 ? 'bg-lastItem' : ''" style="padding-bottom: 1rem; border-radius: 0px 0px 30px 30px; box-shadow: 0px -11px 12px 2px #707070;">
-              <div class="row" style="
-                  margin-top: 5px;
-                  justify-content: space-around;
-                  align-items: baseline;
-                ">
-                <div class="mask col-3">
-                  <div class="d-flex justify-content-start align-items-end h-100">
-                    <h5>
-                      <span class="badge bg-primary ms-2 mt-3 mr-2">{{
-                        prd.quantity
-                        }}</span>
-                    </h5>
-                  </div>
-                </div>
-                <!-- <button type="button" class="btn btn-primary col-4" [routerLink]="['/product', prd.id]">
-                  Details
-                </button> -->
-              </div>
-              <a href="" class="text-reset">
-                <h5 class="card-title mb-3"></h5>
-              </a>
-              <!-- <a href="" class="text-reset"> -->
-              <h4>{{ prd.name }}</h4>
-              <!-- </a> -->
+<div class="container text-center m-auto">
+  <div class="mb-3">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/ART_Television_%28Sri_Lanka%29_%28logo%29.png"
+      style="width: 150px" alt="" *ngIf="flagImg" />
+  </div>
 
-              <div class="row mb-2 mt-3">
-                <div [ngSwitch]="prd.quantity" class="col-6">
-                  <div *ngSwitchCase="0">Out of Stock</div>
-                  <div *ngSwitchCase="1" style="color: rgb(124, 0, 0);">Last One Item</div>
-                  <div *ngSwitchCase="2">Last two Item</div>
-                  <div *ngSwitchDefault>In Stock</div>
-                </div>
-                <!-- <button type="button" class="btn btn-secondary col-3" [disabled]="prd.quantity == 0"
-                  (click)="prd!.quantity = productService.decrease(prd!.quantity)">
-                  Buy
-                </button> -->
-                <!-- <h6 class="col-6">{{ prd.price | currency }}</h6> -->
-              </div>
-              <hr />
-              <div class="row mt-3" style="justify-content: space-around; align-items: baseline">
-                <!-- <div class="mb-3 col-10">
-                  <input
-                    type="number"
-                    class="form-control form-control-sm"
-                    aria-describedby="helpId"
-                    #count
-                    (input)="checkAvQuantity()"
-                  />
-                </div> -->
-                <!-- <button
-                  (click)="Add({ productId: prd.id, count: +count.value })"
-                  type="button"
-                  class="btn btn-primary col-3"
-                >
-                  Add
-                </button> -->
-                <h6 class="col-6">{{ prd.price | currency }}</h6>
+  <div class="row justify-content-center">
+    <div class="col-11 col-lg-3 col-md-5" *ngFor="let prd of filteredProduct" >
 
 
-                <button style="border: none" [disabled]="prd.quantity == 0" (click)="
-                    addtoCartList({
-                      product: prd,
-                      count: 1,
-                      totalPrice: prd.price
-                    })
-                  " type="button" class="btn col-2">
-                  <i class="fa-solid fa-cart-shopping shoppingIcon"></i>
-                </button>
-                <button style="border: none" type="button" class="btn col-2" [routerLink]="['/product', prd.id]"><i class="fa-solid fa-circle-info"></i></button>
+      <div class="card mb-3" [ngStyle]="{ opacity: prd.quantity == 0 ? 0.5 : '' }" style="border-radius: 30px;" BoxShadow>
+        <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="padding: 7px 7px 0px 7px;">
+          <img style="height: 250px;object-fit: cover;" src="{{ prd.img }}" class="w-100 "
+            [routerLink]="['/product', prd.id]" Opacity />
+        </div>
+        <div [ngClass]="prd.quantity == 1 ? 'bg-lastItem' : ''" style="padding-bottom: 1rem; border-radius: 0px 0px 30px 30px; box-shadow: 0px -11px 12px 2px #707070;">
+          <div class="row" style="
+              margin-top: 5px;
+              justify-content: space-around;
+              align-items: baseline;
+            ">
+            <div class="mask col-3">
+              <div class="d-flex justify-content-start align-items-end h-100">
+                <h5>
+                  <span class="badge bg-primary ms-2 mt-3 mr-2">{{
+                    prd.quantity
+                    }}</span>
+                </h5>
               </div>
             </div>
+            <!-- <button type="button" class="btn btn-primary col-4" [routerLink]="['/product', prd.id]">
+              Details
+            </button> -->
+          </div>
+          <a href="" class="text-reset">
+            <h5 class="card-title mb-3"></h5>
+          </a>
+          <!-- <a href="" class="text-reset"> -->
+          <h4>{{ prd.name }}</h4>
+          <!-- </a> -->
+
+          <div class="row mb-2 mt-3">
+            <div [ngSwitch]="prd.quantity" class="col-6">
+              <div *ngSwitchCase="0">Out of Stock</div>
+              <div *ngSwitchCase="1" style="color: rgb(124, 0, 0);">Last One Item</div>
+              <div *ngSwitchCase="2">Last two Item</div>
+              <div *ngSwitchDefault>In Stock</div>
+            </div>
+            <!-- <button type="button" class="btn btn-secondary col-3" [disabled]="prd.quantity == 0"
+              (click)="prd!.quantity = productService.decrease(prd!.quantity)">
+              Buy
+            </button> -->
+            <!-- <h6 class="col-6">{{ prd.price | currency }}</h6> -->
+          </div>
+          <hr />
+          <div class="row mt-3" style="justify-content: space-around; align-items: baseline">
+            <!-- <div class="mb-3 col-10">
+              <input
+                type="number"
+                class="form-control form-control-sm"
+                aria-describedby="helpId"
+                #count
+                (input)="checkAvQuantity()"
+              />
+            </div> -->
+            <!-- <button
+              (click)="Add({ productId: prd.id, count: +count.value })"
+              type="button"
+              class="btn btn-primary col-3"
+            >
+              Add
+            </button> -->
+            <h6 class="col-6">{{ prd.price | currency }}</h6>
+
+
+            <button style="border: none" [disabled]="prd.quantity == 0" (click)="
+                addtoCartList({
+                  product: prd,
+                  count: 1,
+                  totalPrice: prd.price
+                })
+              " type="button" class="btn col-2">
+              <i class="fa-solid fa-cart-shopping shoppingIcon"></i>
+            </button>
+            <button style="border: none" type="button" class="btn col-2" [routerLink]="['/product', prd.id]"><i class="fa-solid fa-circle-info"></i></button>
           </div>
         </div>
       </div>
+
     </div>
   </div>
-</section>
+
+</div>
